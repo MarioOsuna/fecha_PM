@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Recordatorio</string>
+    <string name="FechaNacimiento">Fecha de nacimiento</string>
+</resources>
