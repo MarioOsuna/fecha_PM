@@ -6,18 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonRecordatorio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="49dp"
-        android:text="Recordatorio Whatsapp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simpleDatePicker" />
-
-    <DatePicker
+    <!--<DatePicker
+        //Boton app:layout_constraintTop_toBottomOf="@+id/simpleDatePicker"
         android:id="@+id/simpleDatePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,17 +20,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonFecha" />
+    <EditText
+        android:id="@+id/etPlannedDate"
+        android:hint="@string/FechaNacimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"
+        android:maxLines="1" />-->
+
+    <Button
+        android:id="@+id/buttonRecordatorio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="236dp"
+        android:text="Recordatorio Whatsapp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="99dp"
-        android:layout_marginBottom="48dp"
         android:text="Fecha de nacimiento"
-        app:layout_constraintBottom_toTopOf="@+id/simpleDatePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="68dp"
+        android:text="@string/fecha"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/buttonFecha"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFecha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
