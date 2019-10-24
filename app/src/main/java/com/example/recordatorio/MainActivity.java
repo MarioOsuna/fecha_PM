@@ -21,15 +21,13 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     TextView fecha;
-    DatePicker simpleDatePicker;
     Button buttonFecha,buttonRecordatorio;
     int day,month,year;
-    LocalDate today;
     String cadena;
     Calendar c;
     int diferencia;
     int days;
-    int num_dia;
+    int num_dia=0;
     DatePickerDialog dpd;
 
 
@@ -57,10 +55,14 @@ public class MainActivity extends AppCompatActivity {
                 month=c.get(Calendar.MONTH);
                 year=c.get(Calendar.YEAR);
 
+
                 dpd=new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int mYear, int mMonth, int mDay) {
                         fecha.setText(mDay+"/"+(mMonth+1)+"/"+mYear);
+                        day=mDay;
+                        month=mMonth;
+
                     }
                 },day,month,year);
                 dpd.show();
@@ -79,14 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 days=calendarNow.get(Calendar.DAY_OF_YEAR);
 
                 Calendar calendar=Calendar.getInstance();
-                calendar.set(year,month,day);
+                calendar.set(2019,month,day);
                 num_dia=calendar.get(Calendar.DAY_OF_YEAR);
-
-                /*Calendar c = Calendar.getInstance();
-                c.set(año, mes, dia);
-                num_dia = Calendar.DAY_OF_YEAR;
-                String d = Integer.valueOf(num_dia).toString();
-                tvdias.setText(d);*/
 
 
                 diferencia=days-num_dia;
@@ -99,14 +95,17 @@ public class MainActivity extends AppCompatActivity {
 
               }
 
-              else{
-                   cadena="Quedan "+diferencia+" para que sea el cumpleaños";
+              else {
+                  if(diferencia<0)
+                      diferencia=num_dia-days;
+
+
+                   cadena="Quedan "+diferencia+" días para que sea el cumpleaños";
               }
 
-                Toast.makeText(MainActivity.this,"Dias "+diferencia+"DAYS:"+days+"NUM_dia"+num_dia,Toast.LENGTH_LONG).show();
-            //  simpleDatePicker.
 
-               /* Intent intento=new Intent(Intent.ACTION_SEND);
+
+                Intent intento=new Intent(Intent.ACTION_SEND);
                 intento.setType("text/plain");
                 intento.putExtra(Intent.EXTRA_TEXT,cadena);
                 intento.setPackage("com.whatsapp");
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(MainActivity.this,"Instala WhatsApp",Toast.LENGTH_LONG).show();
-                }*/
+                }
 
             }
         });
